@@ -157,7 +157,7 @@ async addFriend(req, res) {
 },
 
 
-//DELETE to remove a friend from a user's friend lis
+//DELETE to remove a friend from a user's friend list
 async removeFriend(req, res) {
   try {
     const user = await User.findOneAndUpdate(
