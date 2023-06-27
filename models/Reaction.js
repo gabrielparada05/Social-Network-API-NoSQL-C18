@@ -30,6 +30,16 @@ const reactionSchema = new Schema(
   }
 );
 
+reactionSchema
+  .virtual('formatTime')
+  // Getter
+  .get(function () {
+    return this.createdAt.toLocaleDateString();
+  })
+
+
+
+
 const Reaction = model('Reaction', reactionSchema);
 
 // Reaction.deleteMany({}).then((deletedC) => {

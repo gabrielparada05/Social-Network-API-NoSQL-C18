@@ -14,7 +14,10 @@ module.exports = {
   async getSingleThought(req, res) {
     try {
       const thought = await Thought.findOne({ _id: req.params.thoughtId })
-        .select('-__v');
+        .select('-__v')
+        .populate("reactions")
+        .exc()
+      
 
       if (!thought) {
         return res.status(404).json({ message: 'No thought with that ID' });
@@ -94,7 +97,7 @@ async addReaction(req, res) {
   try {
     const thought = await Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $addToSet: { reactions: req.body.reactionId } },
+      { $addToSet: { reactions: req.body} },
       { runValidators: true, new: true }
     );
 
@@ -116,7 +119,7 @@ async removeReaction(req, res) {
   try {
     const thought = await Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $pull: { reactions: { _id: req.params.reactionId } } },
+      { $pull: { reactions: { reactionId: req.params.reactionId } } },
       { runValidators: true, new: true }
     );
 

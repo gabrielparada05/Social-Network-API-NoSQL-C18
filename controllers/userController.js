@@ -13,7 +13,12 @@ module.exports = {
  // GET USER
   async getUser(req, res) {
     try {
-      const users = await User.find();
+      const users = await User.find()
+      .select('-__v')
+        //GET  user by its _id and populated thought and friend data  
+        .populate('thoughts')
+        .populate('friends')
+        .exec();
 
       const userObj = {
         users,
@@ -114,10 +119,13 @@ module.exports = {
     }
   },
 
-
+  // BONUS: Remove a user's associated thoughts when deleted.
  // Remove a thought from a user
 async removeThought(req, res) {
   try {
+    const thought = await Thought.findOneAndRemove({
+      _id: req.params.thoughtId,
+    })
     const user = await User.findOneAndUpdate(
       { _id: req.params.userId },
       { $pull: { thoughts: { _id: req.params.thoughtId } } },
