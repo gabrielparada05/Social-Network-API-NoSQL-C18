@@ -52,41 +52,41 @@ userSchema.virtual('friendCount').get(function () {
 
 const User = model('User', userSchema);
 
-User.deleteMany({}).then((deletedC) => {
-  console.log(deletedC);
+// User.deleteMany({}).then((deletedC) => {
+//   console.log(deletedC);
 
-User.create([
-  {
-    username: "user1",
-    email: "user1@example.com",
-    thoughts: [],
-    friends: []
-  },
-  {
-    username: "user2",
-    email: "user2@example.com",
-    thoughts: [],
-    friends: []
-  },
-  {
-    username: "user3",
-    email: "user3@example.com",
-    thoughts: [],
-    friends: []
-  },
-  {
-    username: "user4",
-    email: "user4@example.com",
-    thoughts: [],
-    friends: []
-  },
-  {
-    username: "user5",
-    email: "user5@example.com",
-    thoughts: [],
-    friends: []
-  }
-])
-});
+// User.create([
+//   {
+//     username: "user1",
+//     email: "user1@example.com",
+//     thoughts: [],
+//     friends: []
+//   },
+//   {
+//     username: "user2",
+//     email: "user2@example.com",
+//     thoughts: [],
+//     friends: []
+//   },
+//   {
+//     username: "user3",
+//     email: "user3@example.com",
+//     thoughts: [],
+//     friends: []
+//   },
+//   {
+//     username: "user4",
+//     email: "user4@example.com",
+//     thoughts: [],
+//     friends: []
+//   },
+//   {
+//     username: "user5",
+//     email: "user5@example.com",
+//     thoughts: [],
+//     friends: []
+//   }
+// ])
+// });
 
 module.exports = User

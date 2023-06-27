@@ -77,7 +77,8 @@ module.exports = {
         res.status(404).json({ message: 'No user with this id!' });
       }
 
-      res.json(course);
+      res.json(user);
+      console.log(user)
     } catch (err) {
       res.status(500).json(err);
     }
@@ -88,23 +89,23 @@ module.exports = {
   // Delete a user 
   async deleteUser(req, res) {
     try {
-      const user = await user.findOneAndRemove({ _id: req.params.userId });
+      const user = await User.findOneAndRemove({ _id: req.params.userId });
 
       if (!user) {
         return res.status(404).json({ message: 'No such user exists' });
       }
 //Remove a user's associated thoughts when deleted
-      const thought = await Thought.findOneAndUpdate(
-        { user: req.params.userId },
-        { $pull: { students: req.params.userId } },
-        { new: true }
-      );
+      // const thought = await Thought.findOneAndUpdate(
+      //   { user: req.params.userId },
+      //   { $pull: { users: req.params.userId } },
+      //   { new: true }
+      // );
 
-      if (!thought) {
-        return res.status(404).json({
-          message: 'User deleted, but no thought found',
-        });
-      }
+      // if (!thought) {
+      //   return res.status(404).json({
+      //     message: 'User deleted, but no thought found',
+      //   });
+      // }
 
       res.json({ message: 'User successfully deleted' });
     } catch (err) {
