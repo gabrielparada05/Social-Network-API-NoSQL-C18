@@ -21,11 +21,11 @@ router.route('/:userId').get(getSingleUser).delete(deleteUser)
 // /api/users/:userId/:thoughtId
 router.route('/:userId/:thoughtId').delete(removeThought);
 
-// /api/users/:userId/friends
-router.route('/:userId/friends').post(addFriend)
+// // /api/users/:userId/friends
+// router.route('/:userId/friends').
 
 // /api/users/:userId/friends/:friendId
-router.route('/:userId/friends/:friendId')
+router.route('/:userId/friends/:friendId').post(addFriend)
 .delete(removeFriend);
 
 
