@@ -51,7 +51,7 @@ userSchema.virtual('friendCount').get(function () {
 });
 
 const User = model('User', userSchema);
-
+//seed
 // User.deleteMany({}).then((deletedC) => {
 //   console.log(deletedC);
 

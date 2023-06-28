@@ -31,6 +31,8 @@ const thoughtSchema = new Schema(
 
 const Thought = model('Thought', thoughtSchema);
 
+
+//seed
 // Thought.deleteMany({}).then((deletedC) => {
 //   console.log(deletedC);
 // Thought.create([

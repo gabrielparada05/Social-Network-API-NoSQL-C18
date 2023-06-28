@@ -132,13 +132,13 @@ async removeThought(req, res) {
       { runValidators: true, new: true }
     );
 
-    if (!user) {
+    if (!thought) {
       return res
         .status(404)
         .json({ message: 'No user found with that ID :(' });
     }
 
-    res.json(user);
+    res.json(thought);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -166,19 +166,20 @@ async addFriend(req, res) {
 },
 
 
-//DELETE to remove a friend from a user's friend list
+// DELETE to remove a friend from a user's friend list
 async removeFriend(req, res) {
   try {
-    const user = await User.findOneAndUpdate(
+   
+    const user = await User.findByIdAndUpdate(
       { _id: req.params.userId },
-      { $pull: { friends: { _id: req.params.friendId } } },
-      { runValidators: true, new: true }
+      { $pull: { friends: req.params.friendId }},
+      { new: true }
     );
 
     if (!user) {
       return res
         .status(404)
-        .json({ message: 'No user found with that ID :(' });
+        .json({ message: 'No friend found with that ID' });
     }
 
     res.json(user);
@@ -187,4 +188,5 @@ async removeFriend(req, res) {
   }
 },
 
-};
+}
+

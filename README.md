@@ -13,7 +13,7 @@ This is a back-end project built with Mongoose, which serves as the main compone
   - [Description](#description)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
-  - [Screenshot path](#screenshot-path)
+  - [Walkthrough Video](#walkthrough-video)
   - [Usage](#usage)
   - [Functionalities](#functionalities)
   - [License](#license)
@@ -23,8 +23,8 @@ This is a back-end project built with Mongoose, which serves as the main compone
 ## Installation 
 To install the project, clone the repository and run npm install to install the required dependencies. You will also need to have MongoDB installed and running on your machine.
 
-## Screenshot path
-A screenshot is available ![alt text](sooonn)
+## Walkthrough Video
+A Walkthrough Video is available at https://drive.google.com/file/d/1vfsK6sYeUzEQ9J4Xc_SkY9VQnIERja0_/view.
 
 ## Usage
 To start the server, run npm start or nom run dev to start the server in development mode with nodemon. You can then make HTTP requests to the server using a tool like Insomnia.

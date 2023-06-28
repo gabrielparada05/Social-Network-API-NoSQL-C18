@@ -42,6 +42,8 @@ reactionSchema
 
 const Reaction = model('Reaction', reactionSchema);
 
+
+//seed
 // Reaction.deleteMany({}).then((deletedC) => {
 //   console.log(deletedC);
 
